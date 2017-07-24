@@ -1,0 +1,5 @@
+---
+
+# disable smells about missing comments
+IrresponsibleModule:
+  enabled: false

@@ -19,10 +19,14 @@ gem 'sidekiq' #Background jobs for Rails
 gem 'sinatra', require: false # support sinatra apps. Required by sidekiq monitoring
 gem 'jbuilder', '~> 2.5' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'redis', '~> 3.0' #Use Redis adapter to run Action Cable in production
+gem 'google-cloud-vision' # Use google to parse image into tags
 
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw] # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'awesome_print' # nice print output
+  gem 'pry' #debug tool
+  gem 'pry-byebug' #debug tool
   gem "letter_opener" #do not send emails in dev env
+  gem 'dotenv-rails' # load environment variables from .env into ENV in development.
 end
 
 group :development do
@@ -37,6 +41,7 @@ end
 group :test do
   gem 'simplecov' #generate code coverage
   gem 'vcr' # stub external requests
+  gem 'webmock'
   gem 'capybara' # for integration test
   gem 'factory_girl_rails' #generate models for tests
 end

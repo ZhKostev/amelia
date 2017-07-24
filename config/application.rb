@@ -27,5 +27,10 @@ module Amelia
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # use sidekiq as jobs adapter
+    config.active_job.queue_adapter = :sidekiq
+
+    config.autoload_paths += Dir[Rails.root.join('app', 'services', '{**/}')]
   end
 end
