@@ -22,7 +22,7 @@ gem 'redis', '~> 3.0' #Use Redis adapter to run Action Cable in production
 gem 'google-cloud-vision' # Use google to parse image into tags
 
 group :development, :test do
-  gem 'awesome_print' # nice print output
+  gem 'awesome_print' # nice console output
   gem 'pry' #debug tool
   gem 'pry-byebug' #debug tool
   gem "letter_opener" #do not send emails in dev env
@@ -44,6 +44,7 @@ group :test do
   gem 'webmock'
   gem 'capybara' # for integration test
   gem 'factory_girl_rails' #generate models for tests
+  gem 'mock_redis' #stub for redis
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
