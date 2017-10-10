@@ -15,10 +15,10 @@ module ImageProcessing
     private
 
     def image
-      @image ||= self.class.image_provider.image(@image_path)
+      @image ||= image_provider.image(@image_path)
     end
 
-    def self.image_provider
+    def image_provider
       @image_provider ||= Google::Cloud::Vision.new
     end
   end

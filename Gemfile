@@ -20,6 +20,7 @@ gem 'sinatra', require: false # support sinatra apps. Required by sidekiq monito
 gem 'jbuilder', '~> 2.5' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'redis', '~> 3.0' #Use Redis adapter to run Action Cable in production
 gem 'google-cloud-vision' # Use google to parse image into tags
+gem 'oauth2'
 
 group :development, :test do
   gem 'awesome_print' # nice console output
