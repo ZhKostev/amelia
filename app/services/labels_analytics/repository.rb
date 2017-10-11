@@ -7,7 +7,7 @@ module LabelsAnalytics
 
       # Public: saves info about labels for particular task or raises default DB errors
       #
-      # task_id - Integer. Task identifier
+      # tag_search_id - Integer. Task identifier
       # labels - 2d Array. Labels data to store. Ex [ ['sky', 0.5], ['ocean', 0.3] ]
       #
       # Examples
@@ -15,27 +15,27 @@ module LabelsAnalytics
       #   save(1456, [ ['sky', 0.5], ['ocean', 0.3] ])
       #   # => true
       #
-      def save(task_id, labels)
+      def save(tag_search_id, labels)
         labels.each do |label, score|
           db_store.pipelined do
-            db_store.hincrbyfloat(task_key_scores(task_id), label, score)
-            db_store.hincrbyfloat(task_key_counts(task_id), label, 1)
+            db_store.hincrbyfloat(task_key_scores(tag_search_id), label, score)
+            db_store.hincrbyfloat(task_key_counts(tag_search_id), label, 1)
           end
         end
         true
       end
 
-      def fetch_scores(task_id)
-        prepare_scores_result(db_store.hgetall(task_key_scores(task_id)))
+      def fetch_scores(tag_search_id)
+        prepare_scores_result(db_store.hgetall(task_key_scores(tag_search_id)))
       end
 
 
-      def fetch_counts(task_id)
-        db_store.hgetall(task_key_counts(task_id))
+      def fetch_counts(tag_search_id)
+        db_store.hgetall(task_key_counts(tag_search_id))
       end
 
-      def delete(task_id)
-        db_store.del([task_key_scores(task_id), task_key_counts(task_id)])
+      def delete(tag_search_id)
+        db_store.del([task_key_scores(tag_search_id), task_key_counts(tag_search_id)])
       end
 
       private
@@ -44,12 +44,12 @@ module LabelsAnalytics
         Hash[*data.map{ |key, val| [key, val.to_f ] }.sort_by { |_key, val| -val }.flatten ]
       end
 
-      def task_key_scores(task_id)
-        "task_#{task_id}_label_scores"
+      def task_key_scores(tag_search_id)
+        "task_#{tag_search_id}_label_scores"
       end
 
-      def task_key_counts(task_id)
-        "task_#{task_id}_label_counts"
+      def task_key_counts(tag_search_id)
+        "task_#{tag_search_id}_label_counts"
       end
 
       def db_store

@@ -1,1 +1,13 @@
 <h1>Analytics for "<%= @tag.name %>"</h1>
+
+<h4>Total images: <%= @recent_media_info.images.size %></h4>
+
+<% @recent_media_info.images.each do |image_url| %>
+  <div>
+    <%= image_tag image_url %>
+  </div>
+<% end %>
+
+<script type="text/javascript" charset="utf-8">
+  TagShow.init(<%= params[:tag_search_id] %>)
+</script>

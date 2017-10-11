@@ -32,6 +32,8 @@ module Amelia
     config.active_job.queue_adapter = :sidekiq
 
     config.autoload_paths += Dir[Rails.root.join('app', 'services', '{**/}')]
+    config.autoload_paths += Dir[Rails.root.join('app', 'decorators', '{**/}')]
+    config.autoload_paths += Dir["#{config.root}/lib/external_apis/**/"]
 
     config.generators do |generator|
       generator.fixture_replacement :factory_girl

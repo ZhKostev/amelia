@@ -12,10 +12,12 @@ RSpec.describe Front::TagsController, type: :controller do
   end
 
   describe 'GET #show' do
-    let(:tag) { FactoryGirl.create(:tag) }
+    let(:tag) { FactoryGirl.create(:tag, name: 'k_test') }
 
     it 'renders show page without errors' do
-      expect(get :show, params: { id: tag.id }).to be_success
+      VCR.use_cassette("instagram_media_recent") do
+        expect(get :show, params: { id: tag.id }).to be_success
+      end
     end
   end
 
@@ -25,12 +27,16 @@ RSpec.describe Front::TagsController, type: :controller do
     end
 
     it 'redirects to tag show page and create a new tag search records for a new tag' do
-      expect(post :create, params: { tag: { name: 'some name ' } }).to redirect_to(action: :show, id: Tag.last.id)
+      expect(post :create, params: {tag: {name: 'some name '}}).to redirect_to(action: :show,
+                                                                               id: Tag.last.id,
+                                                                               tag_search_id: TagSearch.last.id)
     end
 
     it 'redirects to tag show page and create a new tag search records for an existing tag' do
       tag = FactoryGirl.create(:tag)
-      expect(post :create, params: { tag: { name: tag.name } }).to redirect_to(action: :show, id: tag.id)
+      expect(post :create, params: {tag: {name: tag.name}}).to redirect_to(action: :show,
+                                                                           id: tag.id,
+                                                                           tag_search_id: TagSearch.last.id)
     end
   end
 end

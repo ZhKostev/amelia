@@ -1,0 +1,220 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.instagram.com/v1/tags/k_test/media/recent?access_token=fake_token
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Content-Type:
+      - text/html; charset=utf-8
+      Location:
+      - https://api.instagram.com/publicapi/v1/tags/k_test/media/recent?access_token=fake_token
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Vary:
+      - Cookie, Accept-Language
+      Content-Language:
+      - en
+      Date:
+      - Wed, 11 Oct 2017 10:51:19 GMT
+      Set-Cookie:
+      - csrftoken=skR5HRzDelyPh5CSzF5uLnJdctpUKT5q; expires=Wed, 10-Oct-2018 10:51:19
+        GMT; Max-Age=31449600; Path=/; Secure
+      - rur=ATN; Path=/
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Wed, 11 Oct 2017 10:51:19 GMT
+- request:
+    method: get
+    uri: https://api.instagram.com/publicapi/v1/tags/k_test/media/recent?access_token=fake_token
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Cookie:
+      - rur=ATN; csrftoken=skR5HRzDelyPh5CSzF5uLnJdctpUKT5q; Max-Age=31449600
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Content-Type:
+      - text/html; charset=utf-8
+      Location:
+      - https://www.instagram.com/publicapi/v1/tags/k_test/media/recent?access_token=fake_token
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Vary:
+      - Accept-Language
+      Content-Language:
+      - en
+      Date:
+      - Wed, 11 Oct 2017 10:51:19 GMT
+      Set-Cookie:
+      - rur=ATN; Path=/
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Wed, 11 Oct 2017 10:51:19 GMT
+- request:
+    method: get
+    uri: https://www.instagram.com/publicapi/v1/tags/k_test/media/recent?access_token=fake_token
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Cookie:
+      - rur=ATN; csrftoken=skR5HRzDelyPh5CSzF5uLnJdctpUKT5q; Max-Age=31449600
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Content-Type:
+      - text/html; charset=utf-8
+      Location:
+      - https://api.instagram.com/v1/tags/k_test/media/recent?access_token=fake_token
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Vary:
+      - Accept-Language
+      Content-Language:
+      - en
+      Date:
+      - Wed, 11 Oct 2017 10:51:19 GMT
+      Strict-Transport-Security:
+      - max-age=86400
+      Set-Cookie:
+      - rur=ATN; Path=/
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Wed, 11 Oct 2017 10:51:19 GMT
+- request:
+    method: get
+    uri: https://api.instagram.com/v1/tags/k_test/media/recent?access_token=fake_token
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Cookie:
+      - rur=ATN; csrftoken=skR5HRzDelyPh5CSzF5uLnJdctpUKT5q; Max-Age=31449600
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Ratelimit-Limit:
+      - '500'
+      X-Ratelimit-Remaining:
+      - '478'
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Vary:
+      - Cookie, Accept-Language, Accept-Encoding
+      Content-Language:
+      - en
+      Date:
+      - Wed, 11 Oct 2017 10:51:20 GMT
+      Set-Cookie:
+      - csrftoken=skR5HRzDelyPh5CSzF5uLnJdctpUKT5q; expires=Wed, 10-Oct-2018 10:51:20
+        GMT; Max-Age=31449600; Path=/; Secure
+      - rur=ATN; Path=/
+      - 'urlgen="{\"time\": 1507719080\054 \"134.17.152.63\": 25106}:1e2Ebg:yU_bSd9bBm7Xd8ud-01cpFHbvdI";
+        Path=/'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '4436'
+    body:
+      encoding: UTF-8
+      string: '{"pagination": {"next_min_id": "AQCifzfjJjgbvkonPNJqCcb7XHnX_PgkW1B4OpiZpF767UPAtcxVtPnHLMc3_rohA7AYIysNh-W5Wry6N9CH_9ogMXft125PuhbJ5OTTSYxXKg",
+        "min_tag_id": "AQCifzfjJjgbvkonPNJqCcb7XHnX_PgkW1B4OpiZpF767UPAtcxVtPnHLMc3_rohA7AYIysNh-W5Wry6N9CH_9ogMXft125PuhbJ5OTTSYxXKg",
+        "deprecation_warning": "next_max_id and min_id are deprecated for this endpoint;
+        use min_tag_id and max_tag_id instead"}, "data": [{"id": "1622793543575058756_5342113995",
+        "user": {"id": "5342113995", "full_name": "zhk", "profile_picture": "https://scontent.cdninstagram.com/t51.2885-19/11906329_960233084022564_1448528159_a.jpg",
+        "username": "zhk_t"}, "images": {"thumbnail": {"width": 150, "height": 150,
+        "url": "https://scontent.cdninstagram.com/t51.2885-15/s150x150/e35/22344635_399631450452895_8400711217840128_n.jpg"},
+        "low_resolution": {"width": 320, "height": 320, "url": "https://scontent.cdninstagram.com/t51.2885-15/s320x320/e35/22344635_399631450452895_8400711217840128_n.jpg"},
+        "standard_resolution": {"width": 640, "height": 640, "url": "https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/22344635_399631450452895_8400711217840128_n.jpg"}},
+        "created_time": "1507672087", "caption": {"id": "17889798973116905", "text":
+        "Test image 3 #k_test #wa #super_australua", "created_time": "1507672087",
+        "from": {"id": "5342113995", "full_name": "zhk", "profile_picture": "https://scontent.cdninstagram.com/t51.2885-19/11906329_960233084022564_1448528159_a.jpg",
+        "username": "zhk_t"}}, "user_has_liked": false, "likes": {"count": 0}, "tags":
+        ["k_test", "super_australua", "wa"], "filter": "Normal", "comments": {"count":
+        0}, "type": "image", "link": "https://www.instagram.com/p/BaFUiFElrlE/", "location":
+        null, "attribution": null, "users_in_photo": []}, {"id": "1622793086764980556_5342113995",
+        "user": {"id": "5342113995", "full_name": "zhk", "profile_picture": "https://scontent.cdninstagram.com/t51.2885-19/11906329_960233084022564_1448528159_a.jpg",
+        "username": "zhk_t"}, "images": {"thumbnail": {"width": 150, "height": 150,
+        "url": "https://scontent.cdninstagram.com/t51.2885-15/s150x150/e35/22352452_861475647353734_6812599802618970112_n.jpg"},
+        "low_resolution": {"width": 320, "height": 320, "url": "https://scontent.cdninstagram.com/t51.2885-15/s320x320/e35/22352452_861475647353734_6812599802618970112_n.jpg"},
+        "standard_resolution": {"width": 480, "height": 480, "url": "https://scontent.cdninstagram.com/t51.2885-15/e35/22352452_861475647353734_6812599802618970112_n.jpg"}},
+        "created_time": "1507672032", "caption": {"id": "17878562677130345", "text":
+        "Test image 2 #k_test #wa #travel333", "created_time": "1507672032", "from":
+        {"id": "5342113995", "full_name": "zhk", "profile_picture": "https://scontent.cdninstagram.com/t51.2885-19/11906329_960233084022564_1448528159_a.jpg",
+        "username": "zhk_t"}}, "user_has_liked": false, "likes": {"count": 0}, "tags":
+        ["k_test", "wa", "travel333"], "filter": "Clarendon", "comments": {"count":
+        0}, "type": "image", "link": "https://www.instagram.com/p/BaFUbbolhlM/", "location":
+        null, "attribution": null, "users_in_photo": []}, {"id": "1622792335305125656_5342113995",
+        "user": {"id": "5342113995", "full_name": "zhk", "profile_picture": "https://scontent.cdninstagram.com/t51.2885-19/11906329_960233084022564_1448528159_a.jpg",
+        "username": "zhk_t"}, "images": {"thumbnail": {"width": 150, "height": 150,
+        "url": "https://scontent.cdninstagram.com/t51.2885-15/s150x150/e35/c53.0.213.213/22344529_269632766879544_1352477985965342720_n.jpg"},
+        "low_resolution": {"width": 320, "height": 213, "url": "https://scontent.cdninstagram.com/t51.2885-15/e35/22344529_269632766879544_1352477985965342720_n.jpg"},
+        "standard_resolution": {"width": 320, "height": 213, "url": "https://scontent.cdninstagram.com/t51.2885-15/e35/22344529_269632766879544_1352477985965342720_n.jpg"}},
+        "created_time": "1507671943", "caption": {"id": "17904227176040305", "text":
+        "Test image #k_test #wa #super_australua", "created_time": "1507671943", "from":
+        {"id": "5342113995", "full_name": "zhk", "profile_picture": "https://scontent.cdninstagram.com/t51.2885-19/11906329_960233084022564_1448528159_a.jpg",
+        "username": "zhk_t"}}, "user_has_liked": false, "likes": {"count": 1}, "tags":
+        ["k_test", "super_australua", "wa"], "filter": "Normal", "comments": {"count":
+        0}, "type": "image", "link": "https://www.instagram.com/p/BaFUQfyFq8Y/", "location":
+        null, "attribution": null, "users_in_photo": []}], "meta": {"code": 200}}'
+    http_version: 
+  recorded_at: Wed, 11 Oct 2017 10:51:20 GMT
+recorded_with: VCR 3.0.3
