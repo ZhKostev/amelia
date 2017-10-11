@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
   private
 
   def check_access_token
-    redirect_to instagram_authorize_app_path unless InstagramSession.token_set?(session)
+    redirect_to instagram_authorize_app_path unless instagram_session.token_set?
+  end
+
+  def instagram_session
+    InstagramSession.new(session)
   end
 end

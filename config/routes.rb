@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   get '/instagram/callback', to: 'front/instagram#callback', as: :instagram_callback
 
   root 'front/tags#index'
+
+  scope module: 'front' do
+    resources :tags, only: [:index, :show, :create]
+  end
 end

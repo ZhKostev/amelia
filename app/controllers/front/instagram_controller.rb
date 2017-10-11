@@ -11,9 +11,8 @@ module Front
     end
 
     def callback
-      binding.pry unless $stop_pry
       oauth_token = instagram_client.auth_code.get_token(params[:code], redirect_uri: instagram_callback_url)
-      InstagramSession.set_token(session, oauth_token.token)
+      instagram_session.set_token(oauth_token.token)
       redirect_to root_path
     end
 
@@ -29,7 +28,7 @@ module Front
     end
 
     def redirect_to_home_if_token_set
-      redirect_to root_path if InstagramSession.token_set?(session)
+      redirect_to root_path if instagram_session.token_set?
     end
   end
 end

@@ -2,21 +2,31 @@ class InstagramSession
   SESSION_TOKEN_KEY = 'instagram_authorize_token'
   SESSION_ID_KEY = 'visitor_id'
 
-  class << self
-    def token_set?(session)
-      session[SESSION_TOKEN_KEY].present? && session[SESSION_ID_KEY].present?
-    end
+  def initialize(app_session)
+    @app_session = app_session
+  end
 
-    # :reek:FeatureEnvy
-    def set_token(session, token)
-      session[SESSION_TOKEN_KEY] = token
-      session[SESSION_ID_KEY] = create_visitor(token).id
-    end
+  def token_set?
+    token.present? && visitor_id.present?
+  end
 
-    private
+  def set_token(token)
+    @app_session[SESSION_TOKEN_KEY] = token
+    @app_session[SESSION_ID_KEY] = create_visitor(token).id
+  end
+  
+  def token
+    @app_session[SESSION_TOKEN_KEY]
+  end
 
-    def create_visitor(token)
-      Visitor.create!(instagram_token: token)
-    end
+  def visitor_id
+    @app_session[SESSION_ID_KEY]
+  end
+
+  private
+
+  # :reek:UtilityFunction
+  def create_visitor(token)
+    Visitor.create!(instagram_token: token)
   end
 end

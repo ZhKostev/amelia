@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171010113637) do
+ActiveRecord::Schema.define(version: 20171010154525) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "tag_searches", force: :cascade do |t|
+    t.integer "tag_id", null: false
+    t.integer "visitor_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["visitor_id", "tag_id"], name: "visitor_id_tag_id_index"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "name_index", unique: true
+  end
 
   create_table "visitors", force: :cascade do |t|
     t.string "instagram_token"

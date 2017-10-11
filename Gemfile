@@ -5,7 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
 gem 'rails', '~> 5.1.2'
 gem 'pg', '~> 0.18' # Use postgresql as the database for Active Record
 gem 'puma', '~> 3.7' # Use Puma as the app server
@@ -42,11 +41,10 @@ end
 group :test do
   gem 'simplecov' #generate code coverage
   gem 'vcr' # stub external requests
+  gem 'faker' # generate random data
   gem 'webmock'
   gem 'capybara' # for integration test
   gem 'factory_girl_rails' #generate models for tests
   gem 'mock_redis' #stub for redis
+  gem 'rails-controller-testing'
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

@@ -1,0 +1,9 @@
+<%= form_for @tag, url: tags_path do |form| %>
+  <% if form.object.errors.any? %>
+    <% form.object.errors.messages.each do |attr, error_msgs| %>
+      <div><strong><%= attr %></strong>: <%= error_msgs.join(', ')  %></div>
+    <% end %>
+  <% end %>
+  <strong>#</strong><%= form.text_field :name%>
+  <%= form.submit 'View analytics' %>
+<% end %>

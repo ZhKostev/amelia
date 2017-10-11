@@ -11,6 +11,7 @@
 /log/*
 /tmp/*
 /.idea/*
+/coverage/*
 !/log/.keep
 !/tmp/.keep
 
