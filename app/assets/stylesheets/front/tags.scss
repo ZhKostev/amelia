@@ -1,3 +1,79 @@
 // Place all the styles related to the front/tags controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#tag_show_page {
+  position: relative;
+  .chart-cont {
+    position: relative;
+  }
+  .loading-gif {
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+  .loading-gif:before {
+    content: "";
+    top: 30px;
+    left: 40%;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    z-index: 0;
+    background: url(gear-loading-icon.gif);
+    background-repeat: no-repeat;
+  }
+  #tag_show_inner {
+    background-color: white;
+    padding: 10px;
+  }
+  #recent_images_cont {
+    .instagram-img-cont {
+      padding: 5px;
+      text-align: center;
+      vertical-align: middle;
+      overflow: hidden;
+      position: relative;
+      img {
+        border: 1px dotted #9e9e9e;
+        padding: 5px;
+        height: 100%;
+        width: 100%;
+      }
+      img.img-processed {
+        opacity: 0.5;
+      }
+      .img-labels-overlay {
+        position: absolute;
+        text-align: left;
+        bottom: 15px;
+        left: 20px;
+      }
+      .parsing-img-gif {
+        position: absolute;
+        text-align: center;
+        top: 10px;
+        left: 10px;
+        bottom: 10px;
+        right: 10px;
+        opacity: .85;
+        background-color: #9e9e9e;
+      }
+      .parsing-img-gif::before {
+        content: "";
+        top: 45%;
+        left: 40%;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: -1;
+        background: url('gear-loading-icon.gif');
+        background-repeat: no-repeat;
+      }
+    }
+  }
+}
+
+
+

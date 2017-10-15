@@ -1,12 +1,109 @@
-<h1>Analytics for "<%= @tag.name %>"</h1>
+<div class="container h-100" id="tag_show_page">
+  <div id="tag_show_inner">
 
-<h4>Total images: <%= @recent_media_info.images.size %></h4>
+    <div class="row">
+      <div class="col col-lg-12">
+        <h4>Analytics for: <span class="badge badge-primary"><%= @tag.name %></span></h4>
+      </div>
+    </div>
+    <% if @recent_media_info.images.empty? %>
+      <div class="row">
+        <div class="alert alert-warning" role="alert">
+          <strong>No images found!</strong> App is currently in Sandbox mode. You can search tags only from this
+          account:
+          <%= link_to 'https://www.instagram.com/zhk_t/?hl=en', 'https://www.instagram.com/zhk_t/?hl=en' %>.
+        </div>
+      </div>
+    <% end %>
 
-<% @recent_media_info.images.each do |image_url| %>
-  <div>
-    <%= image_tag image_url %>
+    <div class="row">
+      <div class="col col-lg-12">
+        <h5 id="total_img_h">Total images:
+          <span class="badge badge-primary"><%= @recent_media_info.images.size %></span></h5>
+        <h5 id="processed_img_h">Processed images count: <span class="badge badge-primary"><%= 0 %></span></h5>
+        <h5 id="labels_img_h">Uniq image labels count: <span class="badge badge-primary"><%= 0 %></span></h5>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col col-lg-12">
+        <h5>Recent media for hashtag: </h5>
+      </div>
+    </div>
+
+    <div class="row" id="recent_images_cont">
+      <% @recent_media_info.images.each do |image_url| %>
+        <div class="col-lg-3 col-sm-4 col-xs-12 instagram-img-cont">
+          <%= image_tag image_url, class: 'instagram-img' %>
+          <div class="parsing-img-gif">
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="row">
+      <div class="col col-lg-12">
+        <h5>Top Labels by Count: </h5>
+      </div>
+    </div>
+
+    <div class="row justify-content-center chart-cont">
+      <div class="col col-lg-8 col-sm-10 col-xs-12">
+        <canvas id="labels_counts_bar_chart_canvas"></canvas>
+        <div class="loading-gif"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col col-lg-12">
+        <h5>Top Labels by Recognition: </h5>
+      </div>
+    </div>
+
+    <div class="row justify-content-center chart-cont">
+      <div class="col col col-lg-8 col-sm-10 col-xs-12">
+        <canvas id="labels_popularity_bar_chart_canvas"></canvas>
+        <div class="loading-gif"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col col-lg-12">
+        <h5>Users who post this media classification (based on recent user images): </h5>
+      </div>
+    </div>
+
+    <div class="row justify-content-center chart-cont">
+      <div class="col col col-lg-8 col-sm-10 col-xs-12 text-center">
+        <span class="coming-soon">Coming Soon</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col col-lg-12">
+        <h5>Users who like this media classification (based on recent user images): </h5>
+      </div>
+    </div>
+
+    <div class="row justify-content-center chart-cont">
+      <div class="col col col-lg-8 col-sm-10 col-xs-12 text-center">
+        <span class="coming-soon">Coming Soon</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col col-lg-12">
+        <h5>Users who like this media also like classification (based on recent user images): </h5>
+      </div>
+    </div>
+
+    <div class="row justify-content-center chart-cont">
+      <div class="col col col-lg-8 col-sm-10 col-xs-12 text-center">
+        <span class="coming-soon">Coming Soon</span>
+      </div>
+    </div>
   </div>
-<% end %>
+</div>
 
 <script type="text/javascript" charset="utf-8">
   TagShow.init(<%= params[:tag_search_id] %>)

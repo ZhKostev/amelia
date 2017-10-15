@@ -1,5 +1,8 @@
 # :reek:InstanceVariableAssumption
 class Front::TagsController < ApplicationController
+  before_action :increment_search_count, only: :show
+  before_action :check_daily_limit, only: :show
+
   def index
     @tag = Tag.new
   end
@@ -27,5 +30,14 @@ class Front::TagsController < ApplicationController
 
   def instagram_client
     Instagram::Client.new(instagram_session.token)
+  end
+
+  def check_daily_limit
+    redirect_to tags_path, alert: SearchLimitChecker::ALERT_MSG if SearchLimitChecker.limit_is_reached?
+  end
+
+  # :reek:UtilityFunction
+  def increment_search_count
+    SearchLimitChecker.search_is_performed
   end
 end

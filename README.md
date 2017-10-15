@@ -1,4 +1,4 @@
-#  Project "Amelia"
+#  Project "Amelia" (TEST APP)
 
 Main purpose of this project is to try latest Rails with action cable and use this app as demo for interviews. This app is an example of
 Rails 5 application that intergrates with Instagram API, fetches images from Instagram, parses these images and provides simple
@@ -26,6 +26,6 @@ Main test tools: Rspec, Capybara, FactoryGirl, VCR, SimpleCov, Faker.
 
 * Please stub external requests with VCR. Examples here https://github.com/vcr/vcr 
 
-#### To run test suit with coverage please run
+#### To run test suit with coverage report please run
 
 `COVERAGE=1 rspec spec/`

@@ -4,6 +4,7 @@ require 'webmock'
 require 'simplecov'
 require 'factory_girl'
 require 'dotenv'
+require 'mock_redis'
 
 Dotenv.load #load ENV variables
 Dir[Dir.pwd + '/spec/support/**/*.rb'].each { |f| require f }

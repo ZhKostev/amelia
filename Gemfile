@@ -21,7 +21,8 @@ gem 'redis', '~> 3.0' #Use Redis adapter to run Action Cable in production
 gem 'google-cloud-vision' # Use google to parse image into tags
 gem 'oauth2' #oauth2 for instagram
 gem 'httparty' #interface for external requests
-
+gem 'bootstrap', '~> 4.0.0.alpha6' # for simple front version
+gem 'jquery-rails' # bootstrap dependency https://github.com/twbs/bootstrap-rubygem/blob/master/README.md
 
 group :development, :test do
   gem 'awesome_print' # nice console output

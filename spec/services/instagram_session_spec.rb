@@ -32,8 +32,11 @@ describe InstagramSession do
   describe '.set_token' do
     it 'saves token into session and saves data to database' do
       expect { subject.set_token(token) }.to change(Visitor, :count).by(1)
-      expect(session['instagram_authorize_token']).to eq(token)
-      expect(session['visitor_id']).to eq(Visitor.last.id)
+    end
+
+    it 'saves info about visitor' do
+      subject.set_token(token)
+      expect(session).to include({ instagram_authorize_token: token, visitor_id: Visitor.last.id }.stringify_keys)
     end
   end
 end

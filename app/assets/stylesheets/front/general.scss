@@ -1,0 +1,40 @@
+body, html {
+  height: 100%;
+  min-width: 100%;
+}
+
+body {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: #9e9e9e;
+}
+
+body::before {
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: .25;
+  z-index: -1;
+  background: url('authirize_bg.jpg');
+  background-color: #949494;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top;
+  background-size: cover;
+}
+
+@media only screen and (max-width: 600px)  {
+  body::before {
+    background: url('authirize_mob_bg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position-x: center;
+    background-position-y: top;
+    background-size: cover;
+  }
+}

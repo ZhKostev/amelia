@@ -1,9 +1,40 @@
-<%= form_for @tag, url: tags_path do |form| %>
-  <% if form.object.errors.any? %>
-    <% form.object.errors.messages.each do |attr, error_msgs| %>
-      <div><strong><%= attr %></strong>: <%= error_msgs.join(', ')  %></div>
-    <% end %>
-  <% end %>
-  <strong>#</strong><%= form.text_field :name%>
-  <%= form.submit 'View analytics' %>
-<% end %>
+<div class="h-100 w-100">
+  <div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center">
+      <%= form_for @tag, url: tags_path do |form| %>
+        <div class="alert alert-warning" role="alert">
+          <strong>Warning!</strong> App is currently in Sandbox mode. You can search tags only from this account:
+          <%= link_to 'https://www.instagram.com/zhk_t/?hl=en', 'https://www.instagram.com/zhk_t/?hl=en' %>. <br/>
+          You can try following tags:
+          <ul>
+            <li>k_test</li>
+            <li>wa</li>
+            <li>rx8</li>
+            <li>car</li>
+            <li>travel333</li>
+          </ul>
+        </div>
+        <% if flash[:alert] %>
+          <div class="alert alert-danger" role="alert">
+            <strong>Attention! </strong><%= flash[:alert] %>.
+          </div>
+        <% end %>
+        <% if form.object.errors.any? %>
+          <div class="alert alert-danger" role="alert">
+            <% form.object.errors.messages.each do |attr, error_msgs| %>
+              <div><strong><%= attr %></strong>: <%= error_msgs.join(', ') %></div>
+            <% end %>
+          </div>
+        <% end %>
+        <div class="form-group">
+          <label for="name">Hashtag #</label>
+          <%= form.text_field :name, class: 'form-control', placeholder: 'place hashtag without # here' %>
+        </div>
+        <%= form.submit 'View analytics', class: 'btn btn-primary btn-lg btn-block' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
