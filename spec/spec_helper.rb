@@ -6,7 +6,7 @@ require 'factory_girl'
 require 'dotenv'
 require 'mock_redis'
 
-Dotenv.load #load ENV variables
+Dotenv.load('../.env.test') #load ENV variables
 Dir[Dir.pwd + '/spec/support/**/*.rb'].each { |f| require f }
 Dir[Dir.pwd + '/spec/shared_examples/**/*.rb'].each { |f| require f }
 
