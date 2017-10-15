@@ -7,3 +7,5 @@ before_script:
   - psql -c 'create database amelia_test;' -U postgres
 script:
   - bundle exec rspec spec/
+env:
+  - VISION_KEYFILE='/home/travis/build/ZhKostev/amelia/config/credentials/video-webmaster-project-e8cdb47977ea.json' VISION_PROJECT='video-webmaster-project'
