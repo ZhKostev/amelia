@@ -1,5 +1,5 @@
 class SearchLimitChecker
-  ALERT_MSG = 'Daily limit is reached. Please try again next day'
+  ALERT_MSG = 'Daily limit is reached. Please try again next day'.freeze
   class << self
     def limit_is_reached?
       store.get(db_key).to_i >= daily_limit

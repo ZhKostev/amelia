@@ -4,7 +4,6 @@
 module LabelsAnalytics
   class Repository
     class << self
-
       # Public: saves info about labels for particular task or raises default DB errors
       #
       # tag_search_id - Integer. Task identifier
@@ -29,7 +28,6 @@ module LabelsAnalytics
         prepare_scores_result(db_store.hgetall(task_key_scores(tag_search_id)))
       end
 
-
       def fetch_counts(tag_search_id)
         db_store.hgetall(task_key_counts(tag_search_id))
       end
@@ -41,7 +39,7 @@ module LabelsAnalytics
       private
 
       def prepare_scores_result(data)
-        Hash[*data.map{ |key, val| [key, val.to_f ] }.sort_by { |_key, val| -val }.flatten ]
+        Hash[*data.map { |key, val| [key, val.to_f] }.sort_by { |_key, val| -val }.flatten]
       end
 
       def task_key_scores(tag_search_id)

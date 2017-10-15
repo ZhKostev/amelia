@@ -7,6 +7,6 @@ class CreateTagSearches < ActiveRecord::Migration[5.1]
 
       table.timestamps
     end
-    add_index :tag_searches, [:visitor_id, :tag_id], name: "visitor_id_tag_id_index"
+    add_index :tag_searches, %i[visitor_id tag_id], name: 'visitor_id_tag_id_index'
   end
 end

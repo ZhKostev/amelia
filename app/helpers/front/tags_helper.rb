@@ -1,2 +1,4 @@
-module Front::TagsHelper
+module Front
+  module TagsHelper
+  end
 end

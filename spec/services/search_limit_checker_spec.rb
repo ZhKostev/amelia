@@ -2,7 +2,6 @@ require 'rails_helper'
 
 describe SearchLimitChecker do
   context 'with redis stub' do
-
     let(:mock_redis) { MockRedis.new }
 
     before(:each) do
@@ -11,18 +10,17 @@ describe SearchLimitChecker do
     end
 
     describe '.limit_is_reached?' do
-
       it 'returns false if nothing inside redis' do
         expect(described_class.limit_is_reached?).to eq(false)
       end
 
       it 'returns false if limit is not reached' do
-        set_value_in_redis(1)
+        save_value_in_redis(1)
         expect(described_class.limit_is_reached?).to eq(false)
       end
 
       it 'returns true is limit is reached' do
-        set_value_in_redis(2)
+        save_value_in_redis(2)
         expect(described_class.limit_is_reached?).to eq(true)
       end
     end
@@ -35,18 +33,18 @@ describe SearchLimitChecker do
       end
 
       it 'increments redis key by 1 if some searches were already performed' do
-        set_value_in_redis(4)
+        save_value_in_redis(4)
         described_class.search_is_performed
         check_value_in_redis('5')
       end
     end
 
-    def set_value_in_redis(value)
+    def save_value_in_redis(value)
       mock_redis.set(Time.zone.today.strftime('search_count_%d_%m_%y'), value)
     end
 
     def check_value_in_redis(value)
-      expect( mock_redis.get(Time.zone.today.strftime('search_count_%d_%m_%y'))).to eq(value)
+      expect(mock_redis.get(Time.zone.today.strftime('search_count_%d_%m_%y'))).to eq(value)
     end
   end
 end

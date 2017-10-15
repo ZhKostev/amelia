@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   root 'front/tags#index'
 
   scope module: 'front' do
-    resources :tags, only: [:index, :show, :create]
+    resources :tags, only: %i[index show create]
   end
 end

@@ -7,7 +7,7 @@ RSpec.describe Front::TagsController, type: :controller do
 
   describe 'GET #index' do
     it 'renders index page without errors' do
-      expect(get :index).to be_success
+      expect(get(:index)).to be_success
     end
   end
 
@@ -28,14 +28,14 @@ RSpec.describe Front::TagsController, type: :controller do
         expect(ImageProcessWorkerJob).to receive(:perform_later).exactly(3).times
       end
 
-      it 'renders show page without errors'do
-        VCR.use_cassette("instagram_media_recent") do
-          expect(get :show, params: {id: tag.id}).to be_success
+      it 'renders show page without errors' do
+        VCR.use_cassette('instagram_media_recent') do
+          expect(get(:show, params: { id: tag.id })).to be_success
         end
       end
 
       it 'assigns correct images' do
-        VCR.use_cassette("instagram_media_recent") do
+        VCR.use_cassette('instagram_media_recent') do
           get :show, params: { id: tag.id }
           expect(assigns(:recent_media_info).images).to match_array(expected_images)
         end
@@ -49,8 +49,8 @@ RSpec.describe Front::TagsController, type: :controller do
       end
 
       it 'redirects to index page if search limit is reached' do
-        VCR.use_cassette("instagram_media_recent") do
-          expect(get :show, params: {id: tag.id}).to redirect_to(tags_path)
+        VCR.use_cassette('instagram_media_recent') do
+          expect(get(:show, params: { id: tag.id })).to redirect_to(tags_path)
         end
       end
     end
@@ -58,20 +58,20 @@ RSpec.describe Front::TagsController, type: :controller do
 
   describe 'POST #create' do
     it 'renders index page if tag do not pass validation' do
-      expect(post :create, params: {tag: {a: 1}}).to render_template(:index)
+      expect(post(:create, params: { tag: { a: 1 } })).to render_template(:index)
     end
 
     it 'redirects to tag show page and create a new tag search records for a new tag' do
-      expect(post :create, params: {tag: {name: 'some name '}}).to redirect_to(action: :show,
-                                                                               id: Tag.last.id,
-                                                                               tag_search_id: TagSearch.last.id)
+      expect(post(:create, params: { tag: { name: 'some name ' } })).to redirect_to(action: :show,
+                                                                                    id: Tag.last.id,
+                                                                                    tag_search_id: TagSearch.last.id)
     end
 
     it 'redirects to tag show page and create a new tag search records for an existing tag' do
       tag = FactoryGirl.create(:tag)
-      expect(post :create, params: {tag: {name: tag.name}}).to redirect_to(action: :show,
-                                                                           id: tag.id,
-                                                                           tag_search_id: TagSearch.last.id)
+      expect(post(:create, params: { tag: { name: tag.name } })).to redirect_to(action: :show,
+                                                                                id: tag.id,
+                                                                                tag_search_id: TagSearch.last.id)
     end
   end
 end

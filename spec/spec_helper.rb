@@ -6,7 +6,7 @@ require 'factory_girl'
 require 'dotenv'
 require 'mock_redis'
 
-Dotenv.load('../.env.test') #load ENV variables
+Dotenv.load('../.env.test') # load ENV variables
 Dir[Dir.pwd + '/spec/support/**/*.rb'].each { |f| require f }
 Dir[Dir.pwd + '/spec/shared_examples/**/*.rb'].each { |f| require f }
 
@@ -28,11 +28,11 @@ end
 
 VCR.configure do |config|
   config.allow_http_connections_when_no_cassette = true
-  config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
+  config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
   config.hook_into :webmock, :faraday
 end
 
-if ENV["COVERAGE"]
+if ENV['COVERAGE']
   SimpleCov.start do
     add_filter '/spec/'
 

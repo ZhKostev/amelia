@@ -1,5 +1,5 @@
 require 'rails_helper'
-require "google/cloud/vision"
+require 'google/cloud/vision'
 
 RSpec.describe ImageProcessWorkerJob, type: :job do
   let(:task_id) { 657 }
@@ -24,7 +24,7 @@ RSpec.describe ImageProcessWorkerJob, type: :job do
         OpenStruct.new(description: 'metropolitan area', score: 0.9481273293495178),
         OpenStruct.new(description: 'other', score: 0.005),
         OpenStruct.new(description: 'dog', score: 0.25123),
-        OpenStruct.new(description: 'cat', score: 0.123123),
+        OpenStruct.new(description: 'cat', score: 0.123123)
       ]
     end
     let(:top_google_labels_results) { google_labels_results.sort_by { |elem| elem[:score] }.reverse.first(5) }
@@ -51,11 +51,9 @@ RSpec.describe ImageProcessWorkerJob, type: :job do
     end
 
     xit 'saves all info inside HBASE' do
-
     end
 
     xit 'saves image info inside postgres (only path)' do
-
     end
 
     def check_scores(task_id, old_values = {})

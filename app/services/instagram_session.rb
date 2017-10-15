@@ -1,6 +1,6 @@
 class InstagramSession
-  SESSION_TOKEN_KEY = 'instagram_authorize_token'
-  SESSION_ID_KEY = 'visitor_id'
+  SESSION_TOKEN_KEY = 'instagram_authorize_token'.freeze
+  SESSION_ID_KEY = 'visitor_id'.freeze
 
   def initialize(app_session)
     @app_session = app_session
@@ -10,11 +10,11 @@ class InstagramSession
     token.present? && visitor_id.present?
   end
 
-  def set_token(token)
+  def save_token(token)
     @app_session[SESSION_TOKEN_KEY] = token
     @app_session[SESSION_ID_KEY] = create_visitor(token).id
   end
-  
+
   def token
     @app_session[SESSION_TOKEN_KEY]
   end

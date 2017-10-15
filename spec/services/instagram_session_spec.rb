@@ -20,22 +20,20 @@ describe InstagramSession do
       expect(subject.token_set?).to eq(false)
     end
 
-
     it 'returns true if session has both id and token' do
       session['instagram_authorize_token'] = token
       session['visitor_id'] = 123
       expect(subject.token_set?).to eq(true)
     end
-    
   end
 
-  describe '.set_token' do
+  describe '.save_token' do
     it 'saves token into session and saves data to database' do
-      expect { subject.set_token(token) }.to change(Visitor, :count).by(1)
+      expect { subject.save_token(token) }.to change(Visitor, :count).by(1)
     end
 
     it 'saves info about visitor' do
-      subject.set_token(token)
+      subject.save_token(token)
       expect(session).to include({ instagram_authorize_token: token, visitor_id: Visitor.last.id }.stringify_keys)
     end
   end
