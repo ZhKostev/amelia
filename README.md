@@ -1,8 +1,8 @@
 #  Project "Amelia" (TEST APP)
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/82efbd0a423e17a0a28c/maintainability)](https://codeclimate.com/github/ZhKostev/amelia/maintainability)
+[![Code quality by Codeclimate](https://api.codeclimate.com/v1/badges/82efbd0a423e17a0a28c/maintainability)](https://codeclimate.com/github/ZhKostev/amelia/maintainability)
 
-[![Test Coverage](https://api.codeclimate.com/v1/badges/82efbd0a423e17a0a28c/test_coverage)](https://codeclimate.com/github/ZhKostev/amelia/test_coverage)
+[![Test Coverage](https://travis-ci.org/ZhKostev/amelia.svg?branch=master)](https://travis-ci.org/ZhKostev/amelia)
 
 Main purpose of this project is to try latest Rails with action cable and use this app as demo for interviews. This app is an example of
 Rails 5 application that intergrates with Instagram API, fetches images from Instagram, parses these images and provides simple
