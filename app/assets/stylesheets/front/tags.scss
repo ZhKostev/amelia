@@ -21,7 +21,7 @@
     height: 80px;
     position: absolute;
     z-index: 0;
-    background: url(gear-loading-icon.gif);
+    background: image_url('gear-loading-icon.gif');
     background-repeat: no-repeat;
   }
   #tag_show_inner {
@@ -68,7 +68,7 @@
         height: 100%;
         position: absolute;
         z-index: -1;
-        background: url('gear-loading-icon.gif');
+        background: image_url('gear-loading-icon.gif');
         background-repeat: no-repeat;
       }
     }

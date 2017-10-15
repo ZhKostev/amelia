@@ -1,3 +1,5 @@
+require_relative '../../../lib/external_apis/instagram/client'
+
 # :reek:InstanceVariableAssumption
 module Front
   class TagsController < ApplicationController
@@ -11,7 +13,7 @@ module Front
     def show
       @tag = Tag.find(params[:id])
       @recent_media_info = RecentMediaDecorator.new(instagram_client.tag_recent_media(@tag.name))
-      @recent_media_info.images.each { |img_url| ImageProcessWorkerJob.perform_later(params[:tag_search_id], img_url) }
+      @recent_media_info.images.each { |img_url| enqueue_worker(params[:tag_search_id], img_url) }
     end
 
     def create
@@ -26,12 +28,16 @@ module Front
 
     private
 
+    def enqueue_worker(tag_search_id, img_url)
+      ImageProcessWorkerJob.set(wait: (0.15 + rand(300) / 100.to_f).seconds).perform_later(tag_search_id, img_url)
+    end
+
     def tag_params
       params.require(:tag).permit(:name)
     end
 
     def instagram_client
-      Instagram::Client.new(instagram_session.token)
+      ::Instagram::Client.new(instagram_session.token)
     end
 
     def check_daily_limit

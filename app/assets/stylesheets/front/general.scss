@@ -20,7 +20,7 @@ body::before {
   position: absolute;
   opacity: .25;
   z-index: -1;
-  background: url('authirize_bg.jpg');
+  background: image_url('authirize_bg.jpg');
   background-color: #949494;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -30,7 +30,7 @@ body::before {
 
 @media only screen and (max-width: 600px)  {
   body::before {
-    background: url('authirize_mob_bg.jpg');
+    background: image_url('authirize_mob_bg.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position-x: center;

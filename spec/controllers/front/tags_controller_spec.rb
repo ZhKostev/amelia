@@ -25,7 +25,9 @@ RSpec.describe Front::TagsController, type: :controller do
       before(:each) do
         expect(SearchLimitChecker).to receive(:limit_is_reached?).and_return(false)
         expect(SearchLimitChecker).to receive(:search_is_performed)
-        expect(ImageProcessWorkerJob).to receive(:perform_later).exactly(3).times
+        sidekiq_mock = double
+        expect(sidekiq_mock).to receive(:perform_later).exactly(3).times
+        expect(ImageProcessWorkerJob).to receive(:set).exactly(3).times.and_return(sidekiq_mock)
       end
 
       it 'renders show page without errors' do

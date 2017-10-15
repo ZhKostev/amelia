@@ -52,3 +52,5 @@ group :test do
   gem 'mock_redis' # stub for redis
   gem 'rails-controller-testing'
 end
+
+ruby '2.4.0'

@@ -41,3 +41,4 @@ module Amelia
     end
   end
 end
+ENV['VISION_KEYFILE'] = "#{Rails.root}/config/credentials/video-webmaster-project-e8cdb47977ea.json"
