@@ -1,5 +1,4 @@
-require 'spec_helper'
-require_relative '../../../app/services/image_processing/labels_fetcher'
+require 'rails_helper'
 
 describe ImageProcessing::LabelsFetcher do
   context 'with test image' do
