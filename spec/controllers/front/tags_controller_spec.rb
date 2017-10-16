@@ -25,10 +25,8 @@ RSpec.describe Front::TagsController, type: :controller do
       before(:each) do
         expect(SearchLimitChecker).to receive(:limit_is_reached?).and_return(false)
         expect(SearchLimitChecker).to receive(:search_is_performed)
-        sidekiq_mock = double
-        expect(sidekiq_mock).to receive(:perform_later).exactly(3).times
-        expect(ImageProcessWorkerJob).to receive(:set).exactly(3).times.and_return(sidekiq_mock)
-      end
+        check_sidekiq_image_workers
+       end
 
       it 'renders show page without errors' do
         VCR.use_cassette('instagram_media_recent') do
@@ -41,6 +39,12 @@ RSpec.describe Front::TagsController, type: :controller do
           get :show, params: { id: tag.id }
           expect(assigns(:recent_media_info).images).to match_array(expected_images)
         end
+      end
+
+      def check_sidekiq_image_workers
+        sidekiq_mock = double
+        expect(sidekiq_mock).to receive(:perform_later).exactly(3).times
+        expect(ImageProcessWorkerJob).to receive(:set).exactly(3).times.and_return(sidekiq_mock)
       end
     end
 

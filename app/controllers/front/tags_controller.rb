@@ -29,7 +29,7 @@ module Front
     private
 
     def enqueue_worker(tag_search_id, img_url)
-      ImageProcessWorkerJob.set(wait: (0.15 + rand(300) / 100.to_f).seconds).perform_later(tag_search_id, img_url)
+      ImageProcessWorkerJob.set(wait: (0.1 + rand(200) / 100.to_f).seconds).perform_later(tag_search_id, img_url)
     end
 
     def tag_params

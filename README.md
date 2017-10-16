@@ -18,9 +18,9 @@ Key "parts":
 
 ## Demo Link
 
-Sometimes it needs some time to wake up heroku dyno.
+Sometimes it needs some time to wake up heroku dyno. 
 
-[View demo on Heroku](https://aqueous-plateau-12742.herokuapp.com) 
+[View demo on Heroku](https://aqueous-plateau-12742.herokuapp.com?demo_user=true) 
 
 
 ## Developement env

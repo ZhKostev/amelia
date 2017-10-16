@@ -1,8 +1,13 @@
 <div id="authorize_login_main" class="h-100 w-100">
   <div class="container h-100">
     <div class="row h-100 justify-content-center align-items-center">
-      <%= link_to ' Please authorize APP', instagram_authorize_path, alt: 'Authorize APP',
-                  class: 'btn btn-success btn-lg btn-block' %>
+      <div class="alert alert-warning" role="alert">
+        <strong>Warning!</strong> App is currently in Sandbox mode.
+        Please ask for adding as sandbox user and
+        <%= link_to ' Please authorize APP', instagram_authorize_path, alt: 'Authorize APP' %>
+        or use this demo account
+        <%= link_to 'Processed with demo account', root_path(demo_user: true) %>
+      </div>
     </div>
   </div>
 </div>
