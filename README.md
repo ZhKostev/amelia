@@ -16,12 +16,6 @@ Key "parts":
 * Code quality is controlled by rubycritic
 * Tests via rspec, capybara, FactoryGirl, VCR, faker and check coverage with SimpleCov
 
-## Demo Link
-
-Sometimes it needs some time to wake up heroku dyno. 
-
-[View demo on Heroku](https://aqueous-plateau-12742.herokuapp.com?demo_user=true) 
-
 
 ## Developement env
 
